@@ -18,15 +18,17 @@
             background-color: #ffffff;
         }
 
-        /* Cores inspiradas em energia e confiança */
+        /* PALETA DE CORES VERDE ENERGIA */
         :root {
-            --primary: #005c99;      /* azul eletro */
-            --primary-dark: #003d66;
-            --secondary: #ff8c00;    /* laranja energia */
-            --gray-light: #f8fafc;
-            --gray-border: #e2e8f0;
-            --text-dark: #0f172a;
-            --text-muted: #475569;
+            --primary: #0d6e2e;      /* verde principal */
+            --primary-dark: #095523;
+            --primary-light: #a7f0ba;
+            --secondary: #ffb74d;    /* laranja suave para contraste */
+            --gray-light: #f1f8f4;
+            --gray-border: #c8e6d9;
+            --text-dark: #0b2b1a;
+            --text-muted: #2c553a;
+            --whatsapp-green: #25D366;
         }
 
         .container {
@@ -38,7 +40,7 @@
         /* Header */
         .header {
             background-color: white;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 12px rgba(0, 50, 20, 0.08);
             position: sticky;
             top: 0;
             z-index: 10;
@@ -87,7 +89,7 @@
 
         /* Hero */
         .hero {
-            background: linear-gradient(135deg, #eef2ff 0%, #ffffff 100%);
+            background: linear-gradient(135deg, #e6f5ec 0%, #ffffff 100%);
             padding: 4rem 0;
             border-bottom: 1px solid var(--gray-border);
         }
@@ -104,6 +106,41 @@
             font-size: 1.25rem;
             color: var(--text-muted);
             max-width: 700px;
+        }
+
+        /* Botão WhatsApp - Segunda Via */
+        .whatsapp-button-container {
+            text-align: center;
+            margin: 2rem 0 1rem;
+        }
+
+        .btn-whatsapp {
+            background-color: var(--whatsapp-green);
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 60px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+            cursor: pointer;
+        }
+
+        .btn-whatsapp:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+            background-color: #20b859;
+        }
+
+        .btn-whatsapp img {
+            width: 26px;
+            height: 26px;
+            filter: brightness(0) invert(1);
         }
 
         /* Seções gerais */
@@ -142,7 +179,8 @@
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 30px -12px rgba(13, 110, 46, 0.15);
+            border-color: var(--primary-light);
         }
 
         .card-icon {
@@ -171,6 +209,7 @@
             padding: 2rem;
             border-radius: 1.5rem;
             color: var(--text-dark);
+            border-left: 5px solid var(--primary);
         }
 
         .about-content p {
@@ -211,29 +250,11 @@
         }
 
         .footer {
-            background-color: #0f172a;
-            color: #cbd5e1;
+            background-color: #0b2b1a;
+            color: #cfe8d5;
             text-align: center;
             padding: 2rem 0;
             font-size: 0.875rem;
-        }
-
-        /* botão sutil (caso queira simular chamada) */
-        .btn-outline {
-            display: inline-block;
-            margin-top: 1rem;
-            padding: 0.5rem 1.2rem;
-            border: 1px solid var(--primary);
-            border-radius: 2rem;
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s;
-        }
-
-        .btn-outline:hover {
-            background: var(--primary);
-            color: white;
         }
 
         @media (max-width: 768px) {
@@ -249,6 +270,10 @@
             }
             .container {
                 padding: 0 1rem;
+            }
+            .btn-whatsapp {
+                padding: 0.8rem 1.8rem;
+                font-size: 1rem;
             }
         }
     </style>
@@ -277,6 +302,17 @@
             <p>A Elektro Neoenergia está comprometida em fornecer energia de qualidade, sustentável e acessível para todos os nossos clientes.</p>
         </div>
     </section>
+
+    <!-- Botão de Segunda Via redirecionando para WhatsApp -->
+    <div class="container whatsapp-button-container">
+        <a href="https://wa.me/message/UC2YLSMVOIYPI1" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+            <!-- Ícone WhatsApp SVG inline -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
+                <path d="M12.031 2.001c-5.517 0-9.999 4.482-9.999 9.999 0 1.755.455 3.48 1.318 5.001l-1.328 4.852 4.953-1.298c1.469.848 3.146 1.299 4.856 1.299 5.517 0 9.999-4.482 9.999-9.999s-4.482-9.999-9.999-9.999zm0 18.396c-1.498 0-2.973-.403-4.242-1.164l-.304-.181-2.943.771.786-2.87-.198-.314c-.832-1.316-1.273-2.845-1.273-4.439 0-4.598 3.742-8.34 8.34-8.34s8.34 3.742 8.34 8.34-3.742 8.34-8.34 8.34zM17.37 14.24c-.208-.104-1.233-.609-1.424-.679-.191-.07-.33-.104-.47.104-.139.208-.54.679-.662.818-.122.139-.244.156-.452.052-.208-.104-.879-.324-1.674-1.034-.619-.553-1.037-1.235-1.159-1.444-.122-.209-.013-.322.092-.426.094-.094.208-.244.312-.366.104-.122.139-.208.208-.347.07-.139.035-.26-.017-.365-.052-.104-.47-1.133-.643-1.551-.17-.408-.344-.352-.47-.359-.122-.007-.261-.007-.4-.007-.139 0-.365.052-.556.26s-.73.714-.73 1.742c0 1.028.748 2.021.852 2.161.104.139 1.471 2.246 3.564 3.148.498.215.887.343 1.19.439.5.16.954.138 1.313.084.401-.061 1.233-.504 1.407-.99.174-.487.174-.904.122-.991-.052-.087-.191-.139-.399-.243z"/>
+            </svg>
+            Solicitar 2ª Via da Fatura pelo WhatsApp
+        </a>
+    </div>
 
     <!-- Serviços -->
     <section id="servicos" class="section">
@@ -341,7 +377,7 @@
 <footer class="footer">
     <div class="container">
         <p>© 2025 Elektro Neoenergia – Energia que transforma vidas.</p>
-        <p style="margin-top: 0.5rem; font-size: 0.75rem;">Compromisso com sustentabilidade e inovação.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.75rem;">Sustentabilidade, inovação e compromisso com você.</p>
     </div>
 </footer>
 
