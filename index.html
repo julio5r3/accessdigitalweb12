@@ -12,38 +12,39 @@
         }
 
         body {
-            font-family: 'Segoe UI', system-ui, 'Helvetica Neue', sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
             background-color: #ffffff;
-            color: #1e2a3e;
+            color: #1f2a3e;
             line-height: 1.5;
         }
 
-        /* Cores inspiradas no verde Neoenergia */
+        /* PALETA DE VERDE NEOENERGIA */
         :root {
-            --primary: #0e5e2a;
-            --primary-dark: #08451e;
-            --primary-soft: #e6f4ea;
-            --gray-light: #f9fafb;
-            --gray-border: #e2e8f0;
-            --text-dark: #1e2a3e;
-            --text-muted: #4a5b6e;
+            --verde-principal: #007a3d;
+            --verde-escuro: #005c2e;
+            --verde-claro: #e0f2e9;
+            --verde-destaque: #00a34f;
+            --cinza-fundo: #f9fafb;
+            --cinza-borda: #e6edf0;
+            --texto-escuro: #1a2c2e;
+            --texto-cinza: #4b6a6e;
             --whatsapp: #25d366;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 0 1.5rem;
+            padding: 0 2rem;
         }
 
-        /* Header */
+        /* CABEÇALHO */
         .header {
             background: white;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
-            border-bottom: 1px solid var(--gray-border);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            border-bottom: 1px solid var(--cinza-borda);
             position: sticky;
             top: 0;
-            z-index: 10;
+            z-index: 100;
         }
 
         .header-content {
@@ -56,191 +57,214 @@
         }
 
         .logo {
-            font-size: 1.7rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.6rem;
             font-weight: 700;
         }
 
-        .logo span:first-child {
-            color: var(--primary);
+        .logo img {
+            height: 42px;
+            width: auto;
         }
 
-        .logo span:last-child {
-            color: #1e2a3e;
-            font-weight: 500;
+        .logo span {
+            color: var(--verde-principal);
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
         }
 
         .nav a {
             text-decoration: none;
-            color: var(--text-dark);
-            margin-left: 2rem;
+            color: var(--texto-escuro);
             font-weight: 500;
             transition: color 0.2s;
         }
 
         .nav a:hover {
-            color: var(--primary);
+            color: var(--verde-principal);
         }
 
-        /* Hero */
+        /* HERO COM IMAGEM */
         .hero {
-            background: linear-gradient(135deg, var(--primary-soft) 0%, #ffffff 80%);
-            padding: 3.5rem 0;
-            text-align: center;
-            border-bottom: 1px solid var(--gray-border);
+            background: linear-gradient(120deg, var(--verde-claro) 0%, #ffffff 100%);
+            padding: 3rem 0;
         }
 
-        .hero h1 {
-            font-size: 2.5rem;
-            color: var(--primary-dark);
-            margin-bottom: 0.75rem;
+        .hero-grid {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
         }
 
-        .hero p {
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 2.8rem;
+            color: var(--verde-escuro);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
             font-size: 1.2rem;
-            color: var(--text-muted);
-            max-width: 700px;
-            margin: 0 auto;
+            color: var(--texto-cinza);
+            margin-bottom: 1.5rem;
         }
 
-        /* Serviços */
-        .services {
-            padding: 4rem 0;
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 2rem;
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+        }
+
+        /* SEÇÃO SERVIÇOS (CARDS COM IMAGENS) */
+        .servicos {
+            padding: 5rem 0;
             background: white;
         }
 
         .section-title {
-            font-size: 2rem;
+            font-size: 2.2rem;
             text-align: center;
-            margin-bottom: 2.5rem;
-            color: var(--primary-dark);
-            font-weight: 700;
+            color: var(--verde-escuro);
+            margin-bottom: 1rem;
         }
 
         .section-sub {
             text-align: center;
-            color: var(--text-muted);
-            margin-bottom: 3rem;
+            color: var(--texto-cinza);
             font-size: 1.1rem;
+            margin-bottom: 3rem;
         }
 
-        .services-grid {
+        .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-bottom: 2rem;
         }
 
-        .service-card {
+        .card {
             background: white;
-            border-radius: 1.25rem;
-            padding: 2rem;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid var(--cinza-borda);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px -12px rgba(0, 122, 61, 0.2);
+            border-color: var(--verde-principal);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
             text-align: center;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-            border: 1px solid var(--gray-border);
-            transition: transform 0.2s, box-shadow 0.2s;
-            cursor: pointer;
         }
 
-        .service-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 30px -12px rgba(14, 94, 42, 0.15);
-            border-color: var(--primary);
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .service-card h3 {
+        .card-content h3 {
             font-size: 1.5rem;
-            color: var(--primary);
+            color: var(--verde-principal);
             margin-bottom: 0.75rem;
         }
 
-        .service-card p {
-            color: var(--text-muted);
+        .card-content p {
+            color: var(--texto-cinza);
             margin-bottom: 1.5rem;
         }
 
-        .whatsapp-btn {
+        .btn-wpp {
             display: inline-flex;
             align-items: center;
             gap: 8px;
             background-color: var(--whatsapp);
             color: white;
-            border: none;
-            padding: 0.6rem 1.2rem;
-            border-radius: 40px;
-            font-weight: 600;
-            font-size: 0.9rem;
+            padding: 0.7rem 1.4rem;
+            border-radius: 50px;
             text-decoration: none;
+            font-weight: 600;
             transition: background 0.2s;
+            border: none;
+            cursor: pointer;
         }
 
-        .whatsapp-btn:hover {
+        .btn-wpp:hover {
             background-color: #1da15a;
         }
 
-        /* Depoimentos */
-        .testimonials {
-            background-color: var(--primary-soft);
-            padding: 4rem 0;
+        /* DEPOIMENTOS */
+        .depoimentos {
+            background-color: var(--verde-claro);
+            padding: 5rem 0;
         }
 
-        .testimonials-grid {
+        .depo-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
 
-        .testimonial-card {
+        .depo-card {
             background: white;
             border-radius: 1.5rem;
-            padding: 1.8rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-            border: 1px solid var(--gray-border);
+            padding: 2rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            border-left: 6px solid var(--verde-principal);
         }
 
-        .testimonial-text {
+        .depo-texto {
+            font-size: 1rem;
             font-style: italic;
-            color: var(--text-dark);
+            color: var(--texto-escuro);
             margin-bottom: 1rem;
-            line-height: 1.5;
         }
 
-        .testimonial-author {
+        .depo-autor {
             font-weight: 700;
-            color: var(--primary);
-            margin-top: 0.5rem;
+            color: var(--verde-principal);
         }
 
-        /* Footer */
+        /* RODAPÉ */
         .footer {
-            background-color: var(--primary-dark);
-            color: #e2e8f0;
+            background-color: var(--verde-escuro);
+            color: #e0f2e9;
             text-align: center;
-            padding: 2rem 0;
-            font-size: 0.875rem;
+            padding: 2.5rem 0;
         }
 
         @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            .nav a {
-                margin: 0 1rem;
-            }
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            .section-title {
-                font-size: 1.6rem;
-            }
             .container {
                 padding: 0 1.2rem;
+            }
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            .hero-grid {
+                flex-direction: column;
+            }
+            .nav {
+                gap: 1rem;
             }
         }
     </style>
@@ -250,7 +274,9 @@
 <header class="header">
     <div class="container header-content">
         <div class="logo">
-            <span>Neo</span><span>energia</span>
+            <!-- Logo ilustrativa (use sua imagem real aqui) -->
+            <img src="https://placehold.co/600x200/007a3d/white?text=Neoenergia" alt="Logo Neoenergia" style="height: 45px; border-radius: 8px;">
+            <span>Neoenergia</span>
         </div>
         <div class="nav">
             <a href="#">Início</a>
@@ -262,67 +288,74 @@
 </header>
 
 <main>
+    <!-- HERO COM IMAGEM -->
     <section class="hero">
-        <div class="container">
-            <h1>Energia que Move o Futuro</h1>
-            <p>Atendimento digital completo para facilitar sua vida. Clique em qualquer serviço para falar conosco.</p>
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <h1>Energia que Move o Futuro</h1>
+                <p>Atendimento digital completo para facilitar sua vida. Conte com a Neoenergia para soluções rápidas e sustentáveis.</p>
+                <a href="https://wa.me/message/UC2YLSMVOIYPI1" target="_blank" class="btn-wpp">📲 Fale com um especialista</a>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=600&h=400&fit=crop" alt="Energia renovável">
+            </div>
         </div>
     </section>
 
-    <!-- Seção de Serviços -->
-    <section id="servicos" class="services">
+    <!-- SERVIÇOS COM IMAGENS E BOTÃO WHATSAPP -->
+    <section id="servicos" class="servicos">
         <div class="container">
             <h2 class="section-title">Nossos Serviços</h2>
             <div class="section-sub">Atendimento digital completo para facilitar sua vida. Clique em qualquer serviço para falar conosco.</div>
-            <div class="services-grid">
-                <!-- Card 1: 2ª Via de Conta -->
-                <div class="service-card">
-                    <div class="service-icon">📄</div>
-                    <h3>2ª Via de Conta</h3>
-                    <p>Receba sua fatura por WhatsApp e resolva rapidamente.</p>
-                    <a href="https://wa.me/message/UC2YLSMVOIYPI1" target="_blank" rel="noopener noreferrer" class="whatsapp-btn">
-                        📲 Solicitar via WhatsApp
-                    </a>
+            <div class="cards-grid">
+                <!-- Card 1 - 2ª Via -->
+                <div class="card">
+                    <img class="card-img" src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&h=200&fit=crop" alt="Fatura digital">
+                    <div class="card-content">
+                        <h3>2ª Via de Conta</h3>
+                        <p>Receba sua segunda via por e-mail ou WhatsApp e resolva rapidamente.</p>
+                        <a href="https://wa.me/message/UC2YLSMVOIYPI1" target="_blank" class="btn-wpp">📄 Solicitar via WhatsApp</a>
+                    </div>
                 </div>
-                <!-- Card 2: Negociação de Débitos -->
-                <div class="service-card">
-                    <div class="service-icon">🤝</div>
-                    <h3>Negociação de Débitos</h3>
-                    <p>Parcele suas contas e regularize sua situação.</p>
-                    <a href="https://wa.me/message/UC2YLSMVOIYPI1" target="_blank" rel="noopener noreferrer" class="whatsapp-btn">
-                        📲 Negociar agora
-                    </a>
+                <!-- Card 2 - Negociação -->
+                <div class="card">
+                    <img class="card-img" src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=600&h=200&fit=crop" alt="Negociação de débitos">
+                    <div class="card-content">
+                        <h3>Negociação de Débitos</h3>
+                        <p>Parcele suas contas e regularize sua situação com condições especiais.</p>
+                        <a href="https://wa.me/message/UC2YLSMVOIYPI1" target="_blank" class="btn-wpp">🤝 Negociar agora</a>
+                    </div>
                 </div>
-                <!-- Card 3: Religação de Energia -->
-                <div class="service-card">
-                    <div class="service-icon">⚡</div>
-                    <h3>Religação de Energia</h3>
-                    <p>Solicite a religação de forma rápida e segura.</p>
-                    <a href="https://wa.me/message/UC2YLSMVOIYPI1" target="_blank" rel="noopener noreferrer" class="whatsapp-btn">
-                        📲 Solicitar religação
-                    </a>
+                <!-- Card 3 - Religação -->
+                <div class="card">
+                    <img class="card-img" src="https://images.unsplash.com/photo-1581094288338-1c4b2a4e2e7a?w=600&h=200&fit=crop" alt="Religação de energia">
+                    <div class="card-content">
+                        <h3>Religação de Energia</h3>
+                        <p>Solicite a religação da sua energia de forma rápida e segura.</p>
+                        <a href="https://wa.me/message/UC2YLSMVOIYPI1" target="_blank" class="btn-wpp">⚡ Solicitar religação</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Depoimentos -->
-    <section id="depoimentos" class="testimonials">
+    <!-- DEPOIMENTOS (idêntico ao original) -->
+    <section id="depoimentos" class="depoimentos">
         <div class="container">
             <h2 class="section-title">O Que Nossos Clientes Dizem</h2>
             <div class="section-sub">Confira a experiência de quem já utiliza nossos serviços</div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-text">"Excelente atendimento! Consegui resolver minha pendência financeira de forma rápida e sem burocracia. O atendimento pelo WhatsApp foi muito ágil."</div>
-                    <div class="testimonial-author">— João Silva</div>
+            <div class="depo-grid">
+                <div class="depo-card">
+                    <div class="depo-texto">"Excelente atendimento! Consegui resolver minha pendência financeira de forma rápida e sem burocracia. O atendimento pelo WhatsApp foi muito ágil."</div>
+                    <div class="depo-autor">— João Silva</div>
                 </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-text">"A facilidade de pagar via Pix e acessar a fatura digital mudou minha vida. Não preciso mais ir até uma agência física. Recomendo muito!"</div>
-                    <div class="testimonial-author">— Maria Santos</div>
+                <div class="depo-card">
+                    <div class="depo-texto">"A facilidade de pagar via Pix e acessar a fatura digital mudou minha vida. Não preciso mais ir até uma agência física. Recomendo muito!"</div>
+                    <div class="depo-autor">— Maria Santos</div>
                 </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-text">"Serviço de religação muito eficiente. A equipe técnica foi pontual e profissional. Estou muito satisfeito com a Neoenergia!"</div>
-                    <div class="testimonial-author">— Carlos Oliveira</div>
+                <div class="depo-card">
+                    <div class="depo-texto">"Serviço de religação muito eficiente. A equipe técnica foi pontual e profissional. Estou muito satisfeito com a Neoenergia!"</div>
+                    <div class="depo-autor">— Carlos Oliveira</div>
                 </div>
             </div>
         </div>
@@ -332,7 +365,7 @@
 <footer class="footer" id="contato">
     <div class="container">
         <p>© 2025 Neoenergia – Energia que Move o Futuro</p>
-        <p style="margin-top: 0.5rem;">Compromisso com a sustentabilidade e inovação.</p>
+        <p style="margin-top: 0.5rem;">Compromisso com sustentabilidade, inovação e você.</p>
     </div>
 </footer>
 
