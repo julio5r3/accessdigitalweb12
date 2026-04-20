@@ -1,24 +1,349 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>App</title>
-  <style>
-    html, body {
-      margin: 0;
-      height: 100%;
-    }
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Elektro Neoenergia | Energia que transforma vidas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+            line-height: 1.5;
+            color: #1a2c3e;
+            background-color: #ffffff;
+        }
+
+        /* Cores inspiradas em energia e confiança */
+        :root {
+            --primary: #005c99;      /* azul eletro */
+            --primary-dark: #003d66;
+            --secondary: #ff8c00;    /* laranja energia */
+            --gray-light: #f8fafc;
+            --gray-border: #e2e8f0;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header */
+        .header {
+            background-color: white;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span:first-child {
+            color: var(--primary);
+        }
+
+        .logo span:last-child {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #eef2ff 0%, #ffffff 100%);
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--gray-border);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            line-height: 1.2;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 700px;
+        }
+
+        /* Seções gerais */
+        .section {
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--gray-border);
+        }
+
+        .section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.8rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid var(--gray-border);
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-icon {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary);
+        }
+
+        .card p {
+            color: var(--text-muted);
+        }
+
+        /* Sobre */
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--gray-light);
+            padding: 2rem;
+            border-radius: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .about-content p {
+            font-size: 1.05rem;
+        }
+
+        /* Contato */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .contact-item {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.8rem;
+            border: 1px solid var(--gray-border);
+        }
+
+        .contact-item h4 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-item p {
+            margin: 0.5rem 0;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .contact-item .small {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: normal;
+        }
+
+        .footer {
+            background-color: #0f172a;
+            color: #cbd5e1;
+            text-align: center;
+            padding: 2rem 0;
+            font-size: 0.875rem;
+        }
+
+        /* botão sutil (caso queira simular chamada) */
+        .btn-outline {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1.2rem;
+            border: 1px solid var(--primary);
+            border-radius: 2rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .section-title {
+                font-size: 1.7rem;
+            }
+            .container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<iframe src="https://www8.receita-fazenda.info/mei-cnpj"></iframe>
+<header class="header">
+    <div class="container header-content">
+        <div class="logo">
+            <span>Elektro</span><span>Neoenergia</span>
+        </div>
+        <div class="nav">
+            <a href="#">Início</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#contato">Contato</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- Hero section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Energia que transforma vidas</h1>
+            <p>A Elektro Neoenergia está comprometida em fornecer energia de qualidade, sustentável e acessível para todos os nossos clientes.</p>
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <section id="servicos" class="section">
+        <div class="container">
+            <h2 class="section-title">Nossos Serviços</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">📊</div>
+                    <h3>Consulta de Consumo</h3>
+                    <p>Acompanhe o histórico de consumo da sua unidade e entenda melhor seus gastos com energia.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⚡</div>
+                    <h3>Religação de Energia</h3>
+                    <p>Solicite a religação da sua energia de forma rápida e segura através dos nossos canais digitais.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📧</div>
+                    <h3>Fatura Digital</h3>
+                    <p>Receba sua fatura por e-mail, contribua com o meio ambiente e tenha mais praticidade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre a empresa -->
+    <section id="sobre" class="section">
+        <div class="container">
+            <h2 class="section-title">Sobre a Elektro Neoenergia</h2>
+            <div class="about-content">
+                <p>A Elektro Neoenergia é uma das maiores distribuidoras de energia elétrica do Brasil, atendendo milhões de clientes em diversas regiões.</p>
+                <p>Com um compromisso firme com a sustentabilidade e a inovação, trabalhamos para garantir um fornecimento de energia confiável e de qualidade, contribuindo para o desenvolvimento das comunidades onde atuamos.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="section">
+        <div class="container">
+            <h2 class="section-title">Entre em Contato</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h4>📞 Telefone</h4>
+                    <p>Atendimento 24h</p>
+                    <p><strong>0800 123 4567</strong></p>
+                </div>
+                <div class="contact-item">
+                    <h4>✉️ E-mail</h4>
+                    <p>Resposta em até 48h</p>
+                    <p><strong>contato@elektro.com.br</strong></p>
+                </div>
+                <div class="contact-item">
+                    <h4>📍 Endereço</h4>
+                    <p>Escritório Central</p>
+                    <p><strong>Av. Paulista, 1000 - São Paulo/SP</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p>© 2025 Elektro Neoenergia – Energia que transforma vidas.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.75rem;">Compromisso com sustentabilidade e inovação.</p>
+    </div>
+</footer>
 
 </body>
 </html>
